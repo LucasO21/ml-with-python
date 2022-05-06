@@ -1,0 +1,25 @@
+# find categorica features with 2 levels
+
+cat_featues_2level = []
+for feature in cat_df.columns:
+    if cat_df[feature].nunique() == 2:
+        cat_featues_2level.append(feature)    
+        print(feature, ':', cat_df[feature].nunique())
+        
+        
+        
+# ttest
+feat    = []
+stat    = []
+ttest_p_value = []
+
+for feature in cat_featues_2level:
+    x = cat_df[[feature]].assign(sale_price = y_train)
+    l1 = x[feature].unique()[0]
+    l2 = x[feature].unique()[1]
+    g1 = x[cat_df[feature]==l1].iloc[:, 1].values
+    g2 = x[cat_df[feature]==l2].iloc[:, 1].values
+    res = stats.ttest_ind(a=g1, b=g2, equal_var=False)
+    feat.append(feature)
+    stat.append(res[0])
+    ttest_p_value.append(res[1])
