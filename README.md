@@ -2,7 +2,7 @@
 
 This repo contains notebooks of learning projects for implementing machine learning in python.
 
-===============================================================================================
+=========================================================================
 
 ### Ames Housing Prediction 
 This is my first data science project using python. The goal of this project was to explore some feature selection techniques as well as focus on implementation in python using scikit-learn, as well as the [feature engine](https://feature-engine.readthedocs.io/en/1.3.x/) python package.
